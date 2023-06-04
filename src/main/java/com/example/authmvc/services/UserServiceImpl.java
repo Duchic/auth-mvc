@@ -4,9 +4,11 @@ import com.example.authmvc.dto.RegisterDto;
 import com.example.authmvc.entities.UserEntity;
 import com.example.authmvc.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -37,6 +39,12 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Set.of(role));
 
         userRepository.save(user);
+    }
+
+    @Override
+    public UserEntity findByEmail(String email) throws Exception {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new Exception("User not found"));
     }
 
 }

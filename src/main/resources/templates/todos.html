@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todos</h1>
+
+<ul>
+    <li th:each="todo : ${todos}" >
+        <div th:text="${todo.getName()}"></div>
+        <div>Dalsi text</div>
+    </li>
+</ul>
+
+</body>
+</html>

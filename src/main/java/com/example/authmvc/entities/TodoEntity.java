@@ -6,24 +6,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
-
-@Entity(name="roles")
+@Entity(name="todos")
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleEntity {
+public class TodoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name="role_id")
-    private long id;
+    @Column(name="todo_id")
+    public long id;
 
-    @Column(unique = true, nullable = false)
-    private String name;
+    public String name;
 
-    public RoleEntity(String name) {
-        this.name = name;
-    }
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id", nullable = false)
+    public UserEntity user;
 }
