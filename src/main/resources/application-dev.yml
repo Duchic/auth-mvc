@@ -6,17 +6,18 @@ server:
 
 spring:
   datasource:
-    url: jdbc:posgresql://${PROD_DB_HOST}:${PROD_DB_PROT}/${PROD_DB_NAME}
-    username: xxx
-    password: xxx
-      jpa:
-        properties:
-          hibernate:
-            dialect: org.hibernate.dialect.PostgreSQLDialect
-            format_sql: true
-        hibernate:
-          ddl-auto: update
-        show-sql: true
+    url: jdbc:postgresql://db.xyldjumtomiywpeucmmj.supabase.co:5432/postgres
+    username: postgres
+    password: vflk5eqXz1b5TlkH
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
   devtools:
     livereload:
       enabled: true
